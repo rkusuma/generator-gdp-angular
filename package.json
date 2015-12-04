@@ -1,0 +1,32 @@
+{
+  "name": "generator-gdp-angular",
+  "version": "1.0.0",
+  "description": "A generator for creating a basic AngularJS skeleton project for Front End developers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkusuma/generator-gdp-angular.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "AngularJS",
+    "Karma",
+    "Jasmine",
+    "Gulp"
+  ],
+  "author": "Romy Kusuma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkusuma/generator-gdp-angular/issues"
+  },
+  "homepage": "https://github.com/rkusuma/generator-gdp-angular#readme",
+  "dependencies": {
+    "yeoman-generator": "^0.21.1"
+  },
+  "files": [
+    "app"
+  ]
+}
