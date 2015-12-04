@@ -1,0 +1,11 @@
+{
+  "local": {
+    "host": "//localhost:3000/"
+  },
+  "development": {
+    "host": "//localhost:3000/"
+  },
+  "production": {
+    "host": "//localhost:3000/"
+  }
+}

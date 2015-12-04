@@ -1,0 +1,24 @@
+# Ignore Node & Bower
+###################
+node_modules
+bower_components
+build
+.tmp
+npm-debug.log
+
+# Ignore Test reporters
+###################
+**/test/coverage
+report
+
+# Ignore Web Storm #
+.idea
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+/bin/
