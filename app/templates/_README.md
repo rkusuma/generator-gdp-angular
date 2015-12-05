@@ -4,14 +4,14 @@
 - AngularJS 1.3.18
 - jQuery 2.1.4
 - Gulp 3.8.11
-- Bootstrap 3.3.5
+- Bootstrap 3.3.6
 - Font Awesome 4.4.0
 - HTML5
-- CSS3 (Using LESS)
+- CSS3
 
 ### Server Technologies (for development)
-- NodeJS 4.2.1
-- NPM 3.4.1
+- NodeJS 4.2.3
+- NPM 2.1.14
 - ExpressJS 4.12.4
 
 ### Testing (Unit Testing & End to End Testing)
