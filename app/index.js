@@ -49,7 +49,11 @@ module.exports = generators.Base.extend({
         this.directory(sourceRoot + '/src/client/test-helpers', destinationRoot + '/src/client/test-helpers');
 
         this.fs.copy(sourceRoot + '/src/client/_index.html', destinationRoot + '/src/client/index.html');
+
+        this.directory(sourceRoot + '/src/server/utils', destinationRoot + '/src/server/utils');
         this.fs.copy(sourceRoot + '/src/server/_app.js', destinationRoot + '/src/server/app.js');
+        this.fs.copy(sourceRoot + '/src/server/_routes.js', destinationRoot + '/src/server/routes.js');
+        this.fs.copy(sourceRoot + '/src/server/_data.js', destinationRoot + '/src/server/data.js');
         this.fs.copy(sourceRoot + '/src/server/favicon.ico', destinationRoot + '/src/server/favicon.ico');
     },
     _createProjectFileSystem: function() {

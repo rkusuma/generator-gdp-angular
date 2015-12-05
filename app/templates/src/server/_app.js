@@ -9,6 +9,7 @@ var cors = require('cors');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var port = process.env.PORT || 7203;
+var four0four = require('./utils/404')();
 
 var environment = process.env.NODE_ENV;
 
@@ -20,6 +21,8 @@ app.use(bodyParser.json());
 app.use(compress());
 app.use(logger('dev'));
 app.use(cors());
+
+app.use('/api', require('./routes'));
 
 console.log('About to crank up node');
 console.log('PORT=' + port);
@@ -34,6 +37,9 @@ switch (environment) {
     case 'build':
         console.log('** BUILD **');
         app.use(express.static('./build/'));
+        app.use('/app/*', function(req, res, next) {
+            four0four.send404(req, res);
+        });
         app.use('/*', express.static('./build/index.html'));
         break;
     default:
@@ -41,6 +47,9 @@ switch (environment) {
         app.use(express.static('./src/client/'));
         app.use(express.static('./'));
         app.use(express.static('./tmp'));
+        app.use('/app/*', function(req, res, next) {
+            four0four.send404(req, res);
+        });
         app.use('/*', express.static('./src/client/index.html'));
         break;
 }
