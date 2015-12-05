@@ -67,11 +67,11 @@ gulp.task('clean-code', function(done) {
  * Compiling LESS to CSS task
  */
 gulp.task('styles', ['clean-styles'], function() {
-    log('Compiling Less to CSS');
+    log('Compiling CSS');
 
     return gulp.src(config.mainLess)
         .pipe($.plumber())
-        .pipe($.less())
+        <% if (usingSass) { %>.pipe($.sass())<% } else { %>.pipe($.less())<% } %>
         .pipe($.autoprefixer({browser: ['last 2 version', '> 5%']}))
         .pipe(gulp.dest(config.temp + 'styles/'));
 });
@@ -127,7 +127,7 @@ gulp.task('constant-config', function() {
 
     return ngConstant({
         name: 'app.configuration',
-        wrap: '(function(angular) {<%= __ngModule %>})(angular);',
+        wrap: jsonConfig.ejsTemplate,
         constants: environmentConstants,
         stream: true
     })

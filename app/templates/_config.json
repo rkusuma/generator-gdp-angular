@@ -1,4 +1,5 @@
 {
+  "ejsTemplate": "(function(angular) {<%= __ngModule %>})(angular);",
   "local": {
     "host": "//localhost:3000/"
   },

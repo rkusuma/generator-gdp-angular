@@ -8,6 +8,7 @@
 - Font Awesome 4.4.0
 - HTML5
 - CSS3
+<% if (usingSass) { %>- SASS<% } else { %>- LESS<% } %>
 
 ### Server Technologies (for development)
 - NodeJS 4.2.3

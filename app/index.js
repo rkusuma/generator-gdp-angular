@@ -21,7 +21,8 @@ module.exports = generators.Base.extend({
         var templateContext = {
             appName: this.appName,
             appDescription: this.appDescription,
-            appVersion: this.appVersion
+            appVersion: this.appVersion,
+            usingSass: this.usingSass
         };
         this.log('Copying package files...');
 
@@ -31,19 +32,20 @@ module.exports = generators.Base.extend({
         this.fs.copy(sourceRoot + '/jscsrc', destinationRoot + '/.jscsrc');
         this.fs.copy(sourceRoot + '/gitignore', destinationRoot + '/.gitignore');
         this.fs.copyTpl(sourceRoot + '/_README.md', destinationRoot + '/README.md', templateContext);
-        this.fs.copy(sourceRoot + '/_gulpfile.js', destinationRoot + '/gulpfile.js');
-        this.fs.copy(sourceRoot + '/_gulp.config.js', destinationRoot + '/gulp.config.js');
+        this.fs.copyTpl(sourceRoot + '/_gulpfile.js', destinationRoot + '/gulpfile.js', templateContext);
+        this.fs.copyTpl(sourceRoot + '/_gulp.config.js', destinationRoot + '/gulp.config.js', templateContext);
         this.fs.copy(sourceRoot + '/_karma.conf.js', destinationRoot + '/karma.conf.js');
         this.fs.copyTpl(sourceRoot + '/_package.json', destinationRoot + '/package.json', templateContext);
         this.fs.copy(sourceRoot + '/_config.json', destinationRoot + '/config.json');
     },
     _appFiles: function(sourceRoot, destinationRoot) {
         this.log('Copying main app template...');
+        var cssExtension = this.usingSass ? 'scss' : 'less';
 
         this.directory(sourceRoot + '/src/client/app', destinationRoot + '/src/client/app');
         this.directory(sourceRoot + '/src/client/images', destinationRoot + '/src/client/images');
         this.directory(sourceRoot + '/src/client/fonts', destinationRoot + '/src/client/fonts');
-        this.directory(sourceRoot + '/src/client/styles/less', destinationRoot + '/src/client/styles');
+        this.directory(sourceRoot + '/src/client/styles/' + cssExtension, destinationRoot + '/src/client/styles');
         this.directory(sourceRoot + '/src/client/test-helpers', destinationRoot + '/src/client/test-helpers');
 
         this.fs.copy(sourceRoot + '/src/client/_index.html', destinationRoot + '/src/client/index.html');
@@ -64,16 +66,25 @@ module.exports = generators.Base.extend({
             {
                 name: 'name',
                 message: 'What is the name of your project ?',
-                default: 'GDP-Angular'
+                default: this.appname,
+                store: true
             },
             {
                 name: 'description',
-                message: 'What is a description of the project ?'
+                message: 'What is a description of the project ?',
+                store: true
             },
             {
                 name: 'version',
                 message: 'What is the version of your project ?',
-                default: '0.0.1'
+                default: '0.0.1',
+                store: true
+            },
+            {
+                type: 'confirm',
+                name: 'usingSass',
+                message: 'Would you like to use SASS rather than LESS ?',
+                default: true
             }
         ];
 
@@ -83,6 +94,7 @@ module.exports = generators.Base.extend({
         this.appName = answers.name;
         this.appDescription = answers.description;
         this.appVersion = answers.version;
+        this.usingSass = answers.usingSass;
         callback();
     },
     constructor: function() {
@@ -109,5 +121,7 @@ module.exports = generators.Base.extend({
     install: function() {
         this.bowerInstall();
         this.npmInstall();
+
+        this.log(chalk.green.bold('Project has been generated !'));
     }
 });

@@ -11,6 +11,7 @@ module.exports = function() {
     var root = './';
     var wiredep = require('wiredep');
     var bowerFiles = wiredep({devDependencies: true})['js'];
+    var cssExtension = '<% if (usingSass) { %>scss<% } else { %>less<% } %>';
 
     var config = {
         alljs: [
@@ -37,8 +38,8 @@ module.exports = function() {
             clientApp + '**/*.js',
             '!' + clientApp + '**/*.spec.js'
         ],
-        less: client + 'styles/*.less',
-        mainLess: client + 'styles/styles.less',
+        less: client + 'styles/*.' + cssExtension,
+        mainLess: client + 'styles/styles.' + cssExtension,
         root: root,
         server: server,
         temp: temp,
