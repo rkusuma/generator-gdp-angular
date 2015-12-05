@@ -72,7 +72,7 @@ module.exports = function() {
         },
         browserReloadDelay: 1000,
         bower: {
-            json: require('./_bower.json'),
+            json: require('./bower.json'),
             directory: './bower_components/',
             ignorePath: '../../',
             exclude: [
@@ -81,11 +81,11 @@ module.exports = function() {
             ]
         },
         packages: [
-            './_package.json',
-            './_bower.json'
+            './package.json',
+            './bower.json'
         ],
         testLibraries: [
-            'node_modules',
+            'node_modules'
         ],
         specs: [clientApp + '**/*.spec.js'],
 
@@ -99,7 +99,7 @@ module.exports = function() {
          * Node Settings
          */
         defaultPort: 7203,
-        nodeServer: './src/server/_app.js'
+        nodeServer: './src/server/app.js'
     };
 
     config.getWiredepDefaultOptions = function () {

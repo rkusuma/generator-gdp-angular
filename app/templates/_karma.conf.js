@@ -2,7 +2,7 @@
 // Generated on Wed May 20 2015 14:07:49 GMT+0700 (SE Asia Standard Time)
 
 module.exports = function(config) {
-    var gulpConfig = require('./_gulp.config.js')();
+    var gulpConfig = require('./gulp.config.js')();
 
     config.set({
 

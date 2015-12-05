@@ -6,7 +6,7 @@
 var gulp = require('gulp');
 var args = require('yargs').argv;
 var browserSync = require('browser-sync');
-var config = require('./_gulp.config.js')();
+var config = require('./gulp.config.js')();
 var del = require('del');
 var $ = require('gulp-load-plugins')({lazy: true});
 var ngConstant = require('gulp-ng-constant');
@@ -121,7 +121,7 @@ gulp.task('templatecache', ['clean-code'], function() {
  */
 gulp.task('constant-config', function() {
     log('Processing configuration file...');
-    var jsonConfig = require('./_config.json');
+    var jsonConfig = require('./config.json');
     var env = process.env.UMBRELLA_ENV || 'production';
     var environmentConstants = jsonConfig[env];
 
@@ -135,7 +135,7 @@ gulp.task('constant-config', function() {
 });
 
 /**
- * Inject dependencies into HTML  task (from _bower.json devDependencies and app CSS)
+ * Inject dependencies into HTML  task (from bower.json devDependencies and app CSS)
  */
 gulp.task('wiredep', ['constant-config'], function() {
     log('Wire up the bower css jss and our app js into the HTML');
