@@ -63,6 +63,7 @@
                     function(event, toState, toParams, fromState, fromParams) {
                         if (toState.resolve && !_.isEmpty(toState.resolve)) {
                             // do something when resolving data in routes
+                            $rootScope.waitResolveRoute = true;
                         }
                     });
             }
@@ -97,6 +98,7 @@
             function handleRoutingSuccess() {
                 $rootScope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
                     window.scrollTo(0, 0);
+                    $rootScope.waitResolveRoute = false;
                 });
             }
 

@@ -29,7 +29,7 @@
 - Report jasmine tests
 
 ### How to build
-- Create Environment Variable `UMBRELLA_ENV`, and set value `development`
+- Create Environment Variable `NODE_ENV`, and set value `development`
 
 - Install NodeJS (You can install manually or use [chocolatey](https://chocolatey.org/) or [homebrew](http://brew.sh/))
 

@@ -4,5 +4,5 @@
 var MockData = function() {
     return {
         // add mock data here...
-    }
+    };
 };

@@ -64,7 +64,7 @@ module.exports = generators.Base.extend({
             {
                 name: 'name',
                 message: 'What is the name of your project ?',
-                default: this.appName
+                default: 'GDP-Angular'
             },
             {
                 name: 'description',

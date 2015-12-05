@@ -122,7 +122,7 @@ gulp.task('templatecache', ['clean-code'], function() {
 gulp.task('constant-config', function() {
     log('Processing configuration file...');
     var jsonConfig = require('./config.json');
-    var env = process.env.UMBRELLA_ENV || 'production';
+    var env = process.env.NODE_ENV || 'production';
     var environmentConstants = jsonConfig[env];
 
     return ngConstant({
@@ -348,7 +348,7 @@ function startTests(singleRun, done) {
     }
 
     karma.start({
-        configFile: __dirname + '/_karma.conf.js',
+        configFile: __dirname + '/karma.conf.js',
         exclude: excludeFiles,
         singleRun: !!singleRun
     }, karmaCompleted);
