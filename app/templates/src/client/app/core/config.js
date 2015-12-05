@@ -7,6 +7,7 @@
 
     /* @ngInject */
     function toastrConfig(toastr) {
+        toastr.options.positionClass = 'toast-bottom-right';
         toastr.options.preventDuplicates = true;
         toastr.options.closeButton = true;
     }
@@ -29,7 +30,8 @@
     core.config(configure);
 
     /* @ngInject */
-    function configure($compileProvider, $logProvider, exceptionHandlerProvider) {
+    function configure($compileProvider, $logProvider,
+                       routerHelperProvider, exceptionHandlerProvider) {
         $compileProvider.debugInfoEnabled(false);
 
         if ($logProvider.debugEnabled) {
@@ -37,5 +39,9 @@
         }
 
         exceptionHandlerProvider.configure(config.appErrorPrefix);
+
+        routerHelperProvider.configure({
+            docTitle: '' // Add prefix for document title
+        });
     }
 })();
