@@ -1,4 +1,45 @@
-# generator-gdp-angular
-Yeoman generator for Front End project using AngularJS
+# Skeleton Project using AngularJS & Bootstrap
 
-The skeleton project based on [JohnPapa](https://github.com/johnpapa/angular-styleguide) styles
+> Yeoman generator for AngularJS project for Front End developers
+
+This skeleton project based on [JohnPapa](https://github.com/johnpapa/angular-styleguide) styles
+
+## Usage
+
+Follow this steps to use Yeoman and this generator
+
+Clone this repository to your local machine:
+```
+git clone https://github.com/rkusuma/generator-gdp-angular.git
+```
+
+Set your current directory to generator-gdp-angular:
+```
+cd [path to generator-gdp-angular directory]
+```
+
+Run this command:
+```
+npm link
+```
+
+Install `yo`, `gulp`, `bower`:
+```
+npm install -g yo gulp bower
+```
+
+Make a new directory for your project:
+```
+mkdir my-new-project
+cd my-new-project
+```
+
+Run this command:
+```
+yo gdp-angular
+```
+
+To start your project:
+```
+gulp serve-dev
+```
