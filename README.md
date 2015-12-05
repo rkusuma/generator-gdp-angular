@@ -2,7 +2,8 @@
 
 > Yeoman generator for AngularJS project for Front End developers
 
-This skeleton project based on [JohnPapa](https://github.com/johnpapa/angular-styleguide) styles
+This skeleton project based on [JohnPapa](https://github.com/johnpapa/angular-styleguide) styles.
+Using dashboard template from [Bootstrap](http://getbootstrap.com/examples/dashboard/)
 
 ## Usage
 

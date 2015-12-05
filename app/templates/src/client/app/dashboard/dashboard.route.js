@@ -26,6 +26,21 @@
                         content: '<i class="fa fa-dashboard"></i> Dashboard'
                     }
                 }
+            },
+            {
+                state: 'overview',
+                config: {
+                    url: '/overview',
+                    templateUrl: 'app/dashboard/dashboard.html',
+                    controller: 'DashboardController',
+                    controllerAs: 'vm',
+                    title: 'Dashboard',
+                    settings: {
+                        nav: 1,
+                        parent: 1,
+                        content: '<i class="fa fa-dashboard"></i> Overview'
+                    }
+                }
             }
         ];
     }
