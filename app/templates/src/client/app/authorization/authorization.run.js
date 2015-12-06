@@ -22,7 +22,7 @@
                     $state.go('login');
                 }
                 else if (authorised === constant.AUTHORIZATION.PERMISSION.NOT_AUTHORISED) {
-                    $location.path('/').replace();
+                    $location.path('/401').replace();
                 }
             }
         });
