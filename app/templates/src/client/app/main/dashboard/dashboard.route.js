@@ -1,6 +1,3 @@
-/**
- * Created by romy.kusuma on 11/23/2015.
- */
 (function() {
     'use strict';
 
@@ -17,7 +14,7 @@
                 state: 'dashboard',
                 config: {
                     url: '/',
-                    templateUrl: 'app/dashboard/dashboard.html',
+                    templateUrl: 'app/main/dashboard/dashboard.html',
                     controller: 'DashboardController',
                     controllerAs: 'vm',
                     title: 'Dashboard',
@@ -31,7 +28,7 @@
                 state: 'overview',
                 config: {
                     url: '/overview',
-                    templateUrl: 'app/dashboard/dashboard.html',
+                    templateUrl: 'app/main/dashboard/dashboard.html',
                     controller: 'DashboardController',
                     controllerAs: 'vm',
                     title: 'Dashboard',
