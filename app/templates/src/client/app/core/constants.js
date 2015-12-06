@@ -6,5 +6,11 @@
         .module('app.core')
         .constant('_', _)
         .constant('toastr', toastr)
-        .constant('moment', moment);
+        .constant('moment', moment)
+        .constant('constant', {
+            SESSION: {
+                TOKENS: '_session',
+                USER: '_user'
+            }
+        });
 })();

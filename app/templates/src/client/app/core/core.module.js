@@ -9,6 +9,7 @@
         'ngAnimate',
         'ngSanitize',
         'ngResource',
+        'blocks.crypto',
         'blocks.exception',
         'blocks.logger',
         'blocks.router',

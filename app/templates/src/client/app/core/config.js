@@ -30,13 +30,15 @@
     core.config(configure);
 
     /* @ngInject */
-    function configure($compileProvider, $logProvider,
+    function configure($compileProvider, $logProvider, cryptoProvider,
                        routerHelperProvider, exceptionHandlerProvider) {
         $compileProvider.debugInfoEnabled(false);
 
         if ($logProvider.debugEnabled) {
             $logProvider.debugEnabled(true);
         }
+
+        cryptoProvider.setBase64Key('base64Key');
 
         exceptionHandlerProvider.configure(config.appErrorPrefix);
 
