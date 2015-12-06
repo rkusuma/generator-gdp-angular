@@ -6,7 +6,7 @@
         .controller('LoginController', LoginController);
 
     /* @ngInject */
-    function LoginController(logger) {
+    function LoginController(logger, session, $http, $state) {
         var vm = this;
         vm.login = login;
 
@@ -19,7 +19,11 @@
         }
 
         function login() {
-
+            $http.post('/api/login', {username: vm.username, password: vm.password})
+                .then(function(result) {
+                    session.saveTokens(result.data);
+                    $state.go('dashboard');
+                });
         }
     }
 })();

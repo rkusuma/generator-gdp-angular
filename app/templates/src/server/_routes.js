@@ -2,6 +2,7 @@ var router = require('express').Router();
 var four0four = require('./utils/404')();
 var data = require('./data');
 
+router.post('/login', getOauth);
 router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
 router.get('/*', four0four.notFoundMiddleware);
@@ -25,4 +26,8 @@ function getPerson(req, res, next) {
     } else {
         four0four.send404(req, res, 'person ' + id + ' not found');
     }
+}
+
+function getOauth(req, res, next) {
+    res.status(200).send(data.oauth);
 }

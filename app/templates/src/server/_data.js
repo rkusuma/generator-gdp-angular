@@ -1,5 +1,6 @@
 module.exports = {
-    people: getPeople()
+    people: getPeople(),
+    oauth: getOauth()
 };
 
 function getPeople() {
@@ -13,4 +14,12 @@ function getPeople() {
         {id: 7, firstName: 'Haley', lastName: 'Guthrie', age: 35, location: 'Wyoming'},
         {id: 8, firstName: 'Aaron', lastName: 'Jinglehiemer', age: 22, location: 'Utah'}
     ];
+}
+
+function getOauth() {
+    return {
+        'access_token': 'access_token',
+        'refresh_token': 'refresh_token',
+        'expired': (Date.now() / 1000 | 0) * 8 * 60 * 60
+    }
 }

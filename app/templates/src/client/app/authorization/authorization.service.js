@@ -20,23 +20,23 @@
 
         function authorize(loginRequired, requiredPermissions, permissionCheckType) {
             var result = constant.AUTHORIZATION.PERMISSION.AUTHORISED;
-            var user = session.getUser();
-            console.log('user', user);
+            var hasSession = session.getTokens();
 
-            return processUser(user, result);
+            return processUser(hasSession, result);
 
-            function processUser(user, result) {
+            function processUser(hasSession, result) {
                 permissionCheckType = permissionCheckType ||
                     constant.AUTHORIZATION.PERMISSION_TYPE.AT_LEAST_ONE;
 
-                if (loginRequired && !user) {
+                if (loginRequired && !hasSession) {
                     result = constant.AUTHORIZATION.PERMISSION.LOGIN_REQUIRED;
                 }
-                else if ((loginRequired && user) &&
+                else if ((loginRequired && hasSession) &&
                     (!requiredPermissions || requiredPermissions.length === 0)) {
                     result = constant.AUTHORIZATION.PERMISSION.AUTHORISED;
                 }
                 else if (requiredPermissions) {
+                    var user = session.getUser();
                     result = checkPermission(user, requiredPermissions, permissionCheckType);
                 }
 
