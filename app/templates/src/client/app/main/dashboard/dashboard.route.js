@@ -21,6 +21,9 @@
                     settings: {
                         nav: 1,
                         content: '<i class="fa fa-dashboard"></i> Dashboard'
+                    },
+                    access: {
+                        loginRequired: true
                     }
                 }
             },
@@ -36,6 +39,9 @@
                         nav: 1,
                         parent: 1,
                         content: '<i class="fa fa-dashboard"></i> Overview'
+                    },
+                    access: {
+                        loginRequired: true
                     }
                 }
             }
