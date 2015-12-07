@@ -10,6 +10,8 @@ var config = require('./gulp.config.js')();
 var del = require('del');
 var $ = require('gulp-load-plugins')({lazy: true});
 var ngConstant = require('gulp-ng-constant');
+var protractor = require('gulp-protractor').protractor;
+var webdriverUpdate = require('gulp-protractor')['webdriver_update'];
 var port = process.env.PORT || config.defaultPort;
 
 /**
@@ -229,6 +231,21 @@ gulp.task('serve-build', ['build'], function() {
  */
 gulp.task('test', ['vet', 'templatecache', 'constant-config'], function(done) {
     startTests(true, done);
+});
+
+/**
+ * E2E protractor tasks
+ */
+gulp.task('webdriver-update', webdriverUpdate);
+gulp.task('e2e', ['webdriver-update', 'vet', 'templatecache', 'constant-config'], function() {
+    return gulp.src(config.e2eSpecs)
+        .pipe(protractor({
+            configFile: './protractor.conf.js',
+            args: ['--baseUrl', 'http://127.0.0.1:8000']
+        }))
+        .on('error', function(e) {
+            throw e;
+        });
 });
 
 /**

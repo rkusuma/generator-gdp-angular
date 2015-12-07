@@ -78,6 +78,12 @@ gulp serve-build
 gulp test
 ```
 
+- To run selenium test independently
+
+```
+gulp e2e
+```
+
 - To start analyzer JSHint and JSCS
 
 ```
@@ -110,4 +116,3 @@ version = use semantic version (ex: 1.0.0)
 
 ### Angular Style Guide
 Using angular style guide from [Johnpapa](https://github.com/johnpapa/angular-styleguide)
-

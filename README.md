@@ -40,7 +40,17 @@ Run this command:
 yo gdp-angular
 ```
 
-To start your project:
+To run your project in development mode:
 ```
 gulp serve-dev
+```
+
+To run your project in production mode:
+```
+gulp serve-build
+```
+
+To run your project test:
+```
+gulp test
 ```

@@ -37,6 +37,7 @@ module.exports = generators.Base.extend({
         this.fs.copy(sourceRoot + '/_karma.conf.js', destinationRoot + '/karma.conf.js');
         this.fs.copyTpl(sourceRoot + '/_package.json', destinationRoot + '/package.json', templateContext);
         this.fs.copy(sourceRoot + '/_config.json', destinationRoot + '/config.json');
+        this.fs.copy(sourceRoot + '/_protractor.conf.js', destinationRoot + '/protractor.conf.js');
     },
     _appFiles: function(sourceRoot, destinationRoot) {
         this.log('Copying main app template...');
@@ -47,6 +48,7 @@ module.exports = generators.Base.extend({
         this.directory(sourceRoot + '/src/client/fonts', destinationRoot + '/src/client/fonts');
         this.directory(sourceRoot + '/src/client/styles/' + cssExtension, destinationRoot + '/src/client/styles');
         this.directory(sourceRoot + '/src/client/test-helpers', destinationRoot + '/src/client/test-helpers');
+        this.directory(sourceRoot + '/src/client/e2e', destinationRoot + '/src/client/e2e');
 
         this.fs.copy(sourceRoot + '/src/client/_index.html', destinationRoot + '/src/client/index.html');
 

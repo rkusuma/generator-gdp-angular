@@ -89,6 +89,7 @@ module.exports = function() {
             'node_modules'
         ],
         specs: [clientApp + '**/*.spec.js'],
+        e2eSpecs: [client + 'e2e/**/*.js'],
 
         /**
          * Karma and testing Settings
