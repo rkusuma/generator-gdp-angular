@@ -72,7 +72,10 @@ gulp.task('styles', ['clean-styles'], function() {
     log('Compiling CSS');
 
     return gulp.src(config.mainLess)
-        .pipe($.plumber())
+        .pipe($.plumber(function(err) {
+            log(err.toString());
+            this.emit('end');
+        }))
         <% if (usingSass) { %>.pipe($.sass())<% } else { %>.pipe($.less())<% } %>
         .pipe($.autoprefixer({browser: ['last 2 version', '> 5%']}))
         .pipe(gulp.dest(config.temp + 'styles/'));
