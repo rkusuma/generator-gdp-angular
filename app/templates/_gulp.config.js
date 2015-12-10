@@ -89,7 +89,7 @@ module.exports = function() {
             'node_modules'
         ],
         specs: [clientApp + '**/*.spec.js'],
-        e2eSpecs: [client + 'e2e/**/*.js'],
+        e2eSpecs: [client + 'e2e/**/*.spec.js'],
 
         /**
          * Karma and testing Settings
@@ -128,7 +128,7 @@ module.exports = function() {
                 bowerFiles,
                 temp + config.configurationConstant.file,
                 client + '**/*.module.js',
-                client + '**/*.js',
+                clientApp + '**/*.js',
                 temp + config.templateCache.file
             ),
             exclude: [],

@@ -6,6 +6,7 @@
     'use strict';
 
     angular.module('app.core', [
+        'app.configuration',
         'ngAnimate',
         'ngSanitize',
         'ngResource',
