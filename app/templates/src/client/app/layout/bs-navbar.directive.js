@@ -8,6 +8,7 @@
         return {
             restrict: 'E',
             replace: true,
+            scope: true,
             controller: NavbarController,
             controllerAs: 'vm',
             templateUrl: 'app/layout/bs-navbar.html'

@@ -8,6 +8,7 @@
         return {
             restrict: 'E',
             replace: true,
+            scope: true,
             controller: SidebarController,
             controllerAs: 'vm',
             templateUrl: 'app/layout/bs-sidebar.html'
